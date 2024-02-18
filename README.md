@@ -1,4 +1,4 @@
-Link do desafio da Refera-Tech:https://github.com/Refera-Tech/refera-data-short-challenge
+Este repositório foi criado para abordar o desafio proposto pela Refera-Tech no seguinte link: https://github.com/Refera-Tech/refera-data-short-challenge.
     
 
 1) Qual foi os top 2 filmes mais alugados de todos os tempos?
