@@ -15,3 +15,4 @@ order by month
 #     6 |           590
 #     7 |           599
 #     8 |           599
+# total de 2466 novos clientes
