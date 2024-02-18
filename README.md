@@ -4,7 +4,7 @@ link: https://github.com/Refera-Tech/refera-data-short-challenge
 Pergunta 1:
 
 Qual foi os top 2 filmes mais alugados de todos os tempos?
-R: 1° lugar: Bucket Brotherhood e Rocketeer Mother;
+R: Bucket Brotherhood e Rocketeer Mother;
 
 Dentre os top 16 filmes mais alugados, qual o nome completo do ator mais presente nesses filmes?
 R: Cameron Zellweger;
