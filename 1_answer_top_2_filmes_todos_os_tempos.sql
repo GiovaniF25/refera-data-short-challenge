@@ -1,15 +1,13 @@
-SELECT 
-    f.film_id,
-    f.title,
-    COUNT(r.rental_id) AS num_rentals
-FROM 
-    public.film f
-JOIN 
-    public.inventory i ON f.film_id = i.film_id
-JOIN 
-    public.rental r ON i.inventory_id = r.inventory_id
-GROUP BY 
-    f.film_id
-ORDER BY 
-    num_rentals DESC
-LIMIT 2;
+select f.film_id, f.title, count(r.rental_id) as num_rentals
+from public.film f
+join public.inventory i on f.film_id = i.film_id
+join public.rental r on i.inventory_id = r.inventory_id
+group by f.film_id
+order by num_rentals desc
+limit 2
+;
+
+# film_id |       title        | num_rentals 
+#---------+--------------------+-------------
+#     103 | Bucket Brotherhood |          34
+#     738 | Rocketeer Mother   |          33
