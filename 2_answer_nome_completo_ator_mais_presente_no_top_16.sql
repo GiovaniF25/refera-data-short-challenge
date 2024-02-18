@@ -1,33 +1,26 @@
-WITH Top16Films AS (
-    SELECT 
-        f.film_id,
-        f.title,
-        COUNT(r.rental_id) AS num_rentals
-    FROM 
-        public.film f
-    JOIN 
-        public.inventory i ON f.film_id = i.film_id
-    JOIN 
-        public.rental r ON i.inventory_id = r.inventory_id
-    GROUP BY 
-        f.film_id
-    ORDER BY 
-        num_rentals DESC
-    LIMIT 16
-)
+with
+    top16films as (
+        select f.film_id, f.title, count(r.rental_id) as num_rentals
+        from public.film f
+        join public.inventory i on f.film_id = i.film_id
+        join public.rental r on i.inventory_id = r.inventory_id
+        group by f.film_id
+        order by num_rentals desc
+        limit 16
+    )
 
-SELECT 
+select
     a.actor_id,
-    a.first_name || ' ' || a.last_name AS actor_name,
-    COUNT(fa.film_id) AS num_films
-FROM 
-    public.film_actor fa
-JOIN 
-    public.actor a ON fa.actor_id = a.actor_id
-JOIN 
-    Top16Films t ON fa.film_id = t.film_id
-GROUP BY 
-    a.actor_id
-ORDER BY 
-    num_films DESC
-LIMIT 1;
+    a.first_name || ' ' || a.last_name as actor_name,
+    count(fa.film_id) as num_films
+from public.film_actor fa
+join public.actor a on fa.actor_id = a.actor_id
+join top16films t on fa.film_id = t.film_id
+group by a.actor_id
+order by num_films desc
+limit 1
+;
+
+#actor_id |    actor_name     | num_films 
+#----------+-------------------+-----------
+#      111 | Cameron Zellweger |         3
