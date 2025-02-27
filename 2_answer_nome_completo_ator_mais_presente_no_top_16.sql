@@ -16,7 +16,7 @@ select
 from public.film_actor fa
 join public.actor a on fa.actor_id = a.actor_id
 join top16films t on fa.film_id = t.film_id
-group by a.actor_id
+group by a.actor_id, a.first_name, a.last_name
 order by num_films desc
 limit 1
 ;
